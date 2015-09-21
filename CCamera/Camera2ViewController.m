@@ -7,6 +7,7 @@
 //
 
 #import "Camera2ViewController.h"
+#import "ViewController.h"
 
 @interface Camera2ViewController ()
 
@@ -61,22 +62,21 @@
     
     // Get a reference to the captured image
     UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    
+    [self.mainController imageCaptured: image];
     // Get a file path to save the JPEG
-    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* documentsDirectory = [paths objectAtIndex:0];
-    NSString* filename = @"test.jpg";
-    NSString* imagePath = [documentsDirectory stringByAppendingPathComponent:filename];
-    
-    // Get the image data (blocking; around 1 second)
-    NSData* imageData = UIImageJPEGRepresentation(image, 0.5);
-    
-//    mainController
-    
-    // Write the data to the file
-    [imageData writeToFile:imagePath atomically:YES];
-    
-    // Tell the plugin class that we're finished processing the image
+//    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString* documentsDirectory = [paths objectAtIndex:0];
+//    NSString* filename = @"test.jpg";
+//    NSString* imagePath = [documentsDirectory stringByAppendingPathComponent:filename];
+//    
+//    // Get the image data (blocking; around 1 second)
+//    NSData* imageData = UIImageJPEGRepresentation(image, 0.5);
+//
+//    
+//    // Write the data to the file
+//    [imageData writeToFile:imagePath atomically:YES];
+//    
+//    // Tell the plugin class that we're finished processing the image
 //    [self.plugin capturedImageWithPath:imagePath];
 }
 

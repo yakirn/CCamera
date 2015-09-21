@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+// We can't import the ViewController class because it would make a circular reference, so "fake" the existence of the class like this:
+@class ViewController;
+
 @interface Camera2ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIImagePickerController* picker;
-@property (strong, nonatomic) UIViewController* mainController;
+@property (strong, nonatomic) ViewController* mainController;
 
 @end

@@ -28,8 +28,14 @@
 
 - (IBAction) buttonHandler:(id)sender {
     self.overlay = [[Camera2ViewController alloc] initWithNibName:@"Camera2ViewController" bundle:nil];
+    self.overlay.mainController = self;
     
     [self presentViewController:self.overlay.picker animated:YES completion:nil];
+}
+
+- (void)imageCaptured:(UIImage *)image{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.imageView setImage:image];
 }
 
 @end
