@@ -16,6 +16,7 @@
 		2502088C1BB044F500396474 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502088B1BB044F500396474 /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
 		250208901BB04BFA00396474 /* Camera2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502088E1BB04BFA00396474 /* Camera2ViewController.m */; settings = {ASSET_TAGS = (); }; };
 		250208911BB04BFA00396474 /* Camera2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2502088F1BB04BFA00396474 /* Camera2ViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		2502089A1BB16C4900396474 /* UIImage+UIImageCropAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 250208991BB16C4900396474 /* UIImage+UIImageCropAdditions.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		2502088D1BB04BFA00396474 /* Camera2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera2ViewController.h; sourceTree = "<group>"; };
 		2502088E1BB04BFA00396474 /* Camera2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera2ViewController.m; sourceTree = "<group>"; };
 		2502088F1BB04BFA00396474 /* Camera2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Camera2ViewController.xib; sourceTree = "<group>"; };
+		250208981BB16C4900396474 /* UIImage+UIImageCropAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageCropAdditions.h"; sourceTree = "<group>"; };
+		250208991BB16C4900396474 /* UIImage+UIImageCropAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageCropAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 				250208791BB0435E00396474 /* ViewController.h */,
 				2502087A1BB0435E00396474 /* ViewController.m */,
 				2502087C1BB0435E00396474 /* Main.storyboard */,
+				250208981BB16C4900396474 /* UIImage+UIImageCropAdditions.h */,
+				250208991BB16C4900396474 /* UIImage+UIImageCropAdditions.m */,
 				2502088D1BB04BFA00396474 /* Camera2ViewController.h */,
 				2502088E1BB04BFA00396474 /* Camera2ViewController.m */,
 				2502088F1BB04BFA00396474 /* Camera2ViewController.xib */,
@@ -166,6 +171,7 @@
 				250208901BB04BFA00396474 /* Camera2ViewController.m in Sources */,
 				2502087B1BB0435E00396474 /* ViewController.m in Sources */,
 				2502088C1BB044F500396474 /* CameraViewController.m in Sources */,
+				2502089A1BB16C4900396474 /* UIImage+UIImageCropAdditions.m in Sources */,
 				250208781BB0435E00396474 /* AppDelegate.m in Sources */,
 				250208751BB0435E00396474 /* main.m in Sources */,
 			);

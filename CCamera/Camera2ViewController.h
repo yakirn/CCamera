@@ -16,6 +16,4 @@
 @property (strong, nonatomic) UIImagePickerController* picker;
 @property (strong, nonatomic) ViewController* mainController;
 
-- (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize;
-
 @end
