@@ -19,6 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.overlay = [[Camera2ViewController alloc] initWithNibName:@"Camera2ViewController" bundle:nil];
+    self.overlay.mainController = self;
+    
+    [self presentViewController:self.overlay.picker animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

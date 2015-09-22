@@ -60,11 +60,33 @@
 // Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    // Get a reference to the captured image
-    UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImage* squareImage = [self squareImageWithImage:image scaledToSize:CGSizeMake(image.size.width, image.size.width)];
+//    double ratio;
+//    double delta;
+//    CGPoint offset;
     
+    // Get a reference to the captured image
+
+//    UIImage* squareImage = [self squareImageWithImage:image ];// scaledToSize:CGSizeMake(image.size.width, image.size.width)];
+    
+    
+//    ratio = image.size.width / image.size.height;
+//    delta = (ratio*image.size.height - ratio*image.size.width);
+//    offset = CGPointMake(0, delta/2);
+    
+    UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    // Create square from top of current image
+    CGRect croprect = CGRectMake(0, 0, image.size.width, image.size.width);
+    
+    // Draw new image in current graphics context
+    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], croprect);
+    
+    // Create new cropped UIImage
+    UIImage *squareImage = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:image.imageOrientation];
+    
+    CGImageRelease(imageRef);
+    
+    
     UIImageWriteToSavedPhotosAlbum(squareImage, nil, nil, nil);
     [self.mainController imageCaptured: squareImage];
     // Get a file path to save the JPEG
@@ -84,22 +106,22 @@
 //    [self.plugin capturedImageWithPath:imagePath];
 }
 
-- (UIImage *)squareImageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+- (UIImage *)squareImageWithImage:(UIImage *)image {// scaledToSize:(CGSize)newSize {
     double ratio;
     double delta;
     CGPoint offset;
     
     //make a new square size, that is the resized imaged width
-    CGSize sz = CGSizeMake(newSize.width, newSize.width);
+    CGSize sz = CGSizeMake(image.size.width, image.size.width);
     
     //figure out if the picture is landscape or portrait, then
     //calculate scale factor and offset
     if (image.size.width > image.size.height) {
-        ratio = newSize.width / image.size.width;
+        ratio = image.size.width / image.size.width;
         delta = (ratio*image.size.width - ratio*image.size.height);
         offset = CGPointMake(delta/2, 0);
     } else {
-        ratio = newSize.width / image.size.height;
+        ratio = image.size.width / image.size.height;
         delta = (ratio*image.size.height - ratio*image.size.width);
         offset = CGPointMake(0, delta/2);
     }
