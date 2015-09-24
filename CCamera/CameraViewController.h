@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+// We can't import the ViewController class because it would make a circular reference, so "fake" the existence of the class like this:
+@class ViewController;
+
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-// Action method
--(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event;
-
-// Declare some properties (to be explained soon)
 @property (strong, nonatomic) UIImagePickerController* picker;
+@property (strong, nonatomic) ViewController* mainController;
 
 @end

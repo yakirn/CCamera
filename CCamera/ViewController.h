@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Camera2ViewController.h"
+#import "CameraViewController.h"
 
 @interface ViewController : UIViewController
 
-- (IBAction) buttonHandler:(id)sender;
-- (void) imageCaptured:(UIImage*) image;
+@property (strong, nonatomic) CameraViewController* overlay;
 
-@property (nonatomic, weak) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) Camera2ViewController* overlay;
+- (void)imageCaptured:(UIImage *)image;
 @end
 
