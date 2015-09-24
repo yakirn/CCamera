@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CameraViewController">
@@ -15,37 +16,115 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-I3-4Tj">
-                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                    <state key="normal" title="Shoot!"/>
-                    <connections>
-                        <action selector="takePhotoButtonPressed:forEvent:" destination="-1" eventType="touchUpInside" id="9qm-j8-TST"/>
-                    </connections>
-                </button>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xxi-dT-7FL">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                    <items>
+                        <navigationItem title="Title" id="dSq-pO-oMp"/>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wtS-b7-BE3">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="wtS-b7-BE3" secondAttribute="height" multiplier="1:1" id="yMI-W9-YWa"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="yMI-W9-YWa"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="yMI-W9-YWa"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-BI-wrD">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-I3-4Tj">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <state key="normal" title="Shoot!"/>
+                            <connections>
+                                <action selector="takePhotoButtonPressed:forEvent:" destination="-1" eventType="touchUpInside" id="9qm-j8-TST"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="top" secondItem="HJl-BI-wrD" secondAttribute="top" constant="-43" id="Ric-xG-QZi"/>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="leading" secondItem="HJl-BI-wrD" secondAttribute="leading" constant="-77" id="Vvu-Ze-ifZ"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="M8j-I3-4Tj"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="Ric-xG-QZi"/>
+                            <exclude reference="Vvu-Ze-ifZ"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="M8j-I3-4Tj"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="Ric-xG-QZi"/>
+                            <include reference="Vvu-Ze-ifZ"/>
+                        </mask>
+                    </variation>
+                </view>
             </subviews>
             <constraints>
-                <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Kfi-Fa-XYj"/>
-                <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Ozi-R4-WdV"/>
+                <constraint firstItem="HJl-BI-wrD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2aA-jd-fHS"/>
+                <constraint firstItem="HJl-BI-wrD" firstAttribute="leading" secondItem="wtS-b7-BE3" secondAttribute="leading" id="2oQ-nh-ic5"/>
+                <constraint firstAttribute="bottom" secondItem="HJl-BI-wrD" secondAttribute="bottom" id="K9T-o1-blm"/>
+                <constraint firstItem="wtS-b7-BE3" firstAttribute="top" secondItem="Xxi-dT-7FL" secondAttribute="bottom" id="LnP-ST-vwF"/>
+                <constraint firstItem="wtS-b7-BE3" firstAttribute="trailing" secondItem="Xxi-dT-7FL" secondAttribute="trailing" id="Qf1-N9-OTF"/>
+                <constraint firstAttribute="trailing" secondItem="Xxi-dT-7FL" secondAttribute="trailing" id="as7-fa-Mw5"/>
+                <constraint firstItem="HJl-BI-wrD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="443" id="cSb-IQ-uzr"/>
+                <constraint firstItem="wtS-b7-BE3" firstAttribute="leading" secondItem="Xxi-dT-7FL" secondAttribute="leading" id="fok-se-O9T"/>
+                <constraint firstItem="Xxi-dT-7FL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uA5-BR-8wI"/>
+                <constraint firstItem="wtS-b7-BE3" firstAttribute="trailing" secondItem="HJl-BI-wrD" secondAttribute="trailing" id="wXG-Eq-iku"/>
             </constraints>
             <variation key="default">
                 <mask key="subviews">
-                    <exclude reference="M8j-I3-4Tj"/>
+                    <exclude reference="Xxi-dT-7FL"/>
+                    <exclude reference="wtS-b7-BE3"/>
+                    <exclude reference="HJl-BI-wrD"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="Kfi-Fa-XYj"/>
-                    <exclude reference="Ozi-R4-WdV"/>
+                    <exclude reference="as7-fa-Mw5"/>
+                    <exclude reference="uA5-BR-8wI"/>
+                    <exclude reference="LnP-ST-vwF"/>
+                    <exclude reference="Qf1-N9-OTF"/>
+                    <exclude reference="fok-se-O9T"/>
+                    <exclude reference="wXG-Eq-iku"/>
+                    <exclude reference="2aA-jd-fHS"/>
+                    <exclude reference="2oQ-nh-ic5"/>
+                    <exclude reference="K9T-o1-blm"/>
+                    <exclude reference="cSb-IQ-uzr"/>
                 </mask>
             </variation>
-            <variation key="widthClass=compact">
+            <variation key="heightClass=regular-widthClass=compact">
                 <mask key="subviews">
-                    <include reference="M8j-I3-4Tj"/>
+                    <include reference="Xxi-dT-7FL"/>
+                    <include reference="wtS-b7-BE3"/>
+                    <include reference="HJl-BI-wrD"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="Kfi-Fa-XYj"/>
-                    <include reference="Ozi-R4-WdV"/>
+                    <include reference="as7-fa-Mw5"/>
+                    <include reference="uA5-BR-8wI"/>
+                    <include reference="LnP-ST-vwF"/>
+                    <include reference="Qf1-N9-OTF"/>
+                    <include reference="fok-se-O9T"/>
+                    <include reference="wXG-Eq-iku"/>
+                    <include reference="2aA-jd-fHS"/>
+                    <include reference="2oQ-nh-ic5"/>
+                    <include reference="K9T-o1-blm"/>
+                    <include reference="cSb-IQ-uzr"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="480" y="340"/>
+            <point key="canvasLocation" x="999" y="333"/>
         </view>
     </objects>
 </document>
