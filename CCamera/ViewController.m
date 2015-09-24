@@ -26,7 +26,10 @@
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
 
-    [self presentViewController:self.overlay.picker animated:YES completion:nil];
+    if(self.overlay.picker != nil)
+        [self presentViewController:self.overlay.picker animated:YES completion:nil];
+    else
+        [self presentViewController:self.overlay animated:YES completion:nil];
 
 }
 

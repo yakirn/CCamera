@@ -28,10 +28,10 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+    if (self && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera ]) {
         // Instantiate the UIImagePickerController instance
         self.picker = [[UIImagePickerController alloc] init];
-        
+
         // Configure the UIImagePickerController instance
         self.picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
