@@ -15,5 +15,10 @@
 
 @property (strong, nonatomic) UIImagePickerController* picker;
 @property (strong, nonatomic) ViewController* mainController;
+@property (strong, nonatomic) IBOutlet UIView* buttonsPanel;
+@property (strong, nonatomic) IBOutlet UIImageView* takenImageView;
+
+-(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event;
+-(IBAction) takePhotoAgainButtonPressed:(id)sender forEvent:(UIEvent*)event;
 
 @end

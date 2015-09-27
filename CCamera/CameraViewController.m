@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.takenImageView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,10 +53,12 @@
     return self;
 }
 
-// Action method.  This is like an event callback in JavaScript.
 -(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event {
     // Call the takePicture method on the UIImagePickerController to capture the image.
     [self.picker takePicture];
+}
+
+-(IBAction) takePhotoAgainButtonPressed:(id)sender forEvent:(UIEvent*)event {
 }
 
 // Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
