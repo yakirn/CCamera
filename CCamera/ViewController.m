@@ -39,8 +39,8 @@
 }
 
 - (void)imageCaptured:(UIImage *)image{
-//    [self dismissViewControllerAnimated:YES completion:NULL];
-//    [self.imageView setImage:image];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.imageView setImage:image];
 }
 
 @end

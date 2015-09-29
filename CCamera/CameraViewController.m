@@ -53,35 +53,84 @@
     return self;
 }
 
--(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event {
+-(IBAction) takePhoto:(id)sender forEvent:(UIEvent*)event {
     // Call the takePicture method on the UIImagePickerController to capture the image.
     [self.picker takePicture];
 }
 
--(IBAction) takePhotoAgainButtonPressed:(id)sender forEvent:(UIEvent*)event {
+-(IBAction) takeAnotherPhoto:(id)sender forEvent:(UIEvent*)event {
+    [self clearPresentaion];
 }
 
-// Delegate method.  UIImagePickerController will call this method as soon as the image captured above is ready to be processed.  This is also like an event callback in JavaScript.
 -(void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-//    // Create square from top of current image
+//    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    
+    // Crop image to square
     CGRect croprect = CGRectMake(0, 0, image.size.width, image.size.width);
-//
-//    // Draw new image in current graphics context
-//    CGImageRef imageRef = CGImageCreateWithImageInRect([image CGImage], croprect);
-//    
-//    // Create new cropped UIImage
-//    UIImage *squareImage = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:image.imageOrientation];
-//    
-//    CGImageRelease(imageRef);
-    
     UIImage* squareImage = [image croppedImageInRect: croprect];
-    UIImageWriteToSavedPhotosAlbum(squareImage, nil, nil, nil);
+
+    // Show image
+    [self presentImage: squareImage];
+}
+
+-(IBAction) toggleCameraGrid:(id)sender forEvent:(UIEvent*)event {
+    self.takeAnotherPhoto.selected = !self.takeAnotherPhoto.selected;
     
+    //TODO: draw/hide grid
+}
+
+-(void) presentImage: (UIImage*) image{
+    // showing image view
+    self.takenImageView.image = image;
+    self.takenImageView.hidden = NO;
+    
+    // changing to approve button
+    [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapApprove"] forState:UIControlStateNormal];
+    [self.takePhotoButton setImage: nil forState:UIControlStateHighlighted];
+    [self.takePhotoButton removeTarget:self action:@selector(takePhoto:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.takePhotoButton addTarget:self action:@selector(imageSelected) forControlEvents:UIControlEventTouchUpInside];
+    
+    // changing to take another button
+    [self.takeAnotherPhoto setImage:[UIImage imageNamed:@"gallery"] forState:UIControlStateNormal];
+    self.gridState = self.takeAnotherPhoto.selected;
+    self.takeAnotherPhoto.selected = NO;
+    [self.takeAnotherPhoto removeTarget:self action:@selector(toggleCameraGrid:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.takeAnotherPhoto addTarget:self action:@selector(takeAnotherPhoto:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void) clearPresentaion{
+    //Hiding image view
+    self.takenImageView.image = nil;
+    self.takenImageView.hidden = YES;
+    
+    // changing to approve button
+    [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapImage"] forState:UIControlStateNormal];
+    [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapImgeClicked"] forState:UIControlStateHighlighted];
+    [self.takePhotoButton removeTarget:self action:@selector(imageSelected) forControlEvents:UIControlEventTouchUpInside];
+    [self.takePhotoButton addTarget:self action:@selector(takePhoto:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // changing to toggle grid button
+    [self.takeAnotherPhoto setImage:[UIImage imageNamed:@"gridsmallclicked"] forState:UIControlStateNormal];
+    self.takeAnotherPhoto.selected = self.gridState;
+    [self.takeAnotherPhoto removeTarget:self action:@selector(takeAnotherPhoto:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.takeAnotherPhoto addTarget:self action:@selector(toggleCameraGrid:forEvent:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+-(void) imageSelected {
     if(self.mainController != nil)
-        [self.mainController imageCaptured: squareImage];
+        [self.mainController imageCaptured: self.takenImageView.image];
+
+    UIImageWriteToSavedPhotosAlbum(self.takenImageView.image, nil, nil, nil);
+}
+
+//    UIImageWriteToSavedPhotosAlbum(squareImage, nil, nil, nil);
+    
+//    if(self.mainController != nil)
+//        [self.mainController imageCaptured: squareImage];
     
     // Get a file path to save the JPEG
 //    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -98,7 +147,6 @@
 //    
 //    // Tell the plugin class that we're finished processing the image
 //    [self.plugin capturedImageWithPath:imagePath];
-}
 
 /*
 #pragma mark - Navigation

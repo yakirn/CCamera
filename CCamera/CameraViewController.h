@@ -14,11 +14,20 @@
 @interface CameraViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (strong, nonatomic) UIImagePickerController* picker;
-@property (strong, nonatomic) ViewController* mainController;
-@property (strong, nonatomic) IBOutlet UIView* buttonsPanel;
-@property (strong, nonatomic) IBOutlet UIImageView* takenImageView;
+@property (nonatomic, assign) BOOL gridState;
+@property (weak, nonatomic) ViewController* mainController;
+@property (weak, nonatomic) IBOutlet UIView* buttonsPanel;
+@property (weak, nonatomic) IBOutlet UIImageView* takenImageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *takeAnotherPhoto;
 
--(IBAction) takePhotoButtonPressed:(id)sender forEvent:(UIEvent*)event;
--(IBAction) takePhotoAgainButtonPressed:(id)sender forEvent:(UIEvent*)event;
+-(IBAction) takePhoto:(id)sender forEvent:(UIEvent*)event;
+-(IBAction) takeAnotherPhoto:(id)sender forEvent:(UIEvent*)event;
+
+-(IBAction) toggleCameraGrid:(id)sender forEvent:(UIEvent*)event;
+
+-(void) presentImage: (UIImage*) image;
+-(void) clearPresentaion;
+-(void) imageSelected;
 
 @end

@@ -15,6 +15,7 @@
 		250208901BB04BFA00396474 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2502088E1BB04BFA00396474 /* CameraViewController.m */; settings = {ASSET_TAGS = (); }; };
 		250208911BB04BFA00396474 /* CameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2502088F1BB04BFA00396474 /* CameraViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		2502089A1BB16C4900396474 /* UIImage+UIImageCropAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 250208991BB16C4900396474 /* UIImage+UIImageCropAdditions.m */; settings = {ASSET_TAGS = (); }; };
+		25FF9C261BBAB7DA00AC907F /* btnsnap.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FF9C251BBAB7DA00AC907F /* btnsnap.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2502088F1BB04BFA00396474 /* CameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraViewController.xib; sourceTree = "<group>"; };
 		250208981BB16C4900396474 /* UIImage+UIImageCropAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UIImageCropAdditions.h"; sourceTree = "<group>"; };
 		250208991BB16C4900396474 /* UIImage+UIImageCropAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UIImageCropAdditions.m"; sourceTree = "<group>"; };
+		25FF9C251BBAB7DA00AC907F /* btnsnap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btnsnap.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 		250208671BB0435E00396474 = {
 			isa = PBXGroup;
 			children = (
+				25FF9C271BBAB7E300AC907F /* Images */,
 				250208721BB0435E00396474 /* CCamera */,
 				250208711BB0435E00396474 /* Products */,
 			);
@@ -87,6 +90,15 @@
 				250208741BB0435E00396474 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		25FF9C271BBAB7E300AC907F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				25FF9C251BBAB7DA00AC907F /* btnsnap.png */,
+			);
+			name = Images;
+			path = CCamera;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +159,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25FF9C261BBAB7DA00AC907F /* btnsnap.png in Resources */,
 				250208911BB04BFA00396474 /* CameraViewController.xib in Resources */,
 				250208831BB0435E00396474 /* LaunchScreen.storyboard in Resources */,
 				250208801BB0435E00396474 /* Assets.xcassets in Resources */,

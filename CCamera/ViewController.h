@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) CameraViewController* overlay;
+@property (strong, nonatomic) UIImageView* imageView;
 
 - (void)imageCaptured:(UIImage *)image;
 @end
