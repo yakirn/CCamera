@@ -45,6 +45,19 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJl-BI-wrD">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-I3-4Tj">
+                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                            <state key="normal" image="SnapImage">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="SnapImageClicked"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="135" y="120" width="115" height="115"/>
+                            </variation>
+                            <connections>
+                                <action selector="takePhoto:forEvent:" destination="-1" eventType="touchUpInside" id="n4n-q9-raa"/>
+                            </connections>
+                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iqa-qp-9Iu">
                             <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                             <accessibility key="accessibilityConfiguration" label=""/>
@@ -52,85 +65,54 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" image="gridsmall"/>
-                            <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                <rect key="frame" x="281" y="161" width="80" height="34"/>
+                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                <rect key="frame" x="298" y="161" width="34" height="34"/>
                             </variation>
                             <connections>
                                 <action selector="toggleCameraGrid:forEvent:" destination="-1" eventType="touchUpInside" id="H7O-pG-K66"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8j-I3-4Tj">
-                            <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                            <state key="normal" image="SnapImage">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <state key="highlighted" image="SnapImageClicked"/>
-                            <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                <rect key="frame" x="116" y="120" width="168" height="115"/>
-                            </variation>
-                            <connections>
-                                <action selector="takePhoto:forEvent:" destination="-1" eventType="touchUpInside" id="n4n-q9-raa"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="HJl-BI-wrD" secondAttribute="leading" constant="274" id="3JE-7V-I1R"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerY" secondItem="HJl-BI-wrD" secondAttribute="centerY" id="83p-KJ-y0l"/>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="baseline" secondItem="M8j-I3-4Tj" secondAttribute="baseline" id="Dpa-T5-S14"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="leading" secondItem="HJl-BI-wrD" secondAttribute="leading" constant="134" id="E7h-U9-ogr"/>
-                        <constraint firstAttribute="trailing" secondItem="Iqa-qp-9Iu" secondAttribute="trailing" constant="33" id="MgI-3m-iXS"/>
-                        <constraint firstAttribute="trailing" secondItem="Iqa-qp-9Iu" secondAttribute="trailing" constant="33" id="Rae-f7-ylw"/>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" constant="8" id="UNK-Gy-gmW"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerX" secondItem="HJl-BI-wrD" secondAttribute="centerX" id="gW4-hB-RCJ"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="leading" secondItem="HJl-BI-wrD" secondAttribute="leading" constant="134" id="iZ7-Bm-XjW"/>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" constant="8" symbolic="YES" id="pUa-U2-T3F"/>
+                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" constant="48" id="3yO-Qz-bku"/>
+                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="centerY" secondItem="M8j-I3-4Tj" secondAttribute="centerY" id="7y8-qg-UyZ"/>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerX" secondItem="HJl-BI-wrD" secondAttribute="centerX" id="aoi-R8-QsD"/>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerY" secondItem="HJl-BI-wrD" secondAttribute="centerY" id="lvW-2h-Rql"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
-                            <exclude reference="Iqa-qp-9Iu"/>
                             <exclude reference="M8j-I3-4Tj"/>
+                            <exclude reference="Iqa-qp-9Iu"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="3JE-7V-I1R"/>
-                            <exclude reference="Dpa-T5-S14"/>
-                            <exclude reference="MgI-3m-iXS"/>
-                            <exclude reference="Rae-f7-ylw"/>
-                            <exclude reference="UNK-Gy-gmW"/>
-                            <exclude reference="pUa-U2-T3F"/>
-                            <exclude reference="83p-KJ-y0l"/>
-                            <exclude reference="E7h-U9-ogr"/>
-                            <exclude reference="gW4-hB-RCJ"/>
-                            <exclude reference="iZ7-Bm-XjW"/>
+                            <exclude reference="aoi-R8-QsD"/>
+                            <exclude reference="lvW-2h-Rql"/>
+                            <exclude reference="3yO-Qz-bku"/>
+                            <exclude reference="7y8-qg-UyZ"/>
                         </mask>
                     </variation>
-                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                        <rect key="frame" x="0.0" y="444" width="400" height="356"/>
+                    <variation key="heightClass=regular-widthClass=compact">
                         <mask key="subviews">
-                            <include reference="Iqa-qp-9Iu"/>
                             <include reference="M8j-I3-4Tj"/>
+                            <include reference="Iqa-qp-9Iu"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="3JE-7V-I1R"/>
-                            <include reference="Dpa-T5-S14"/>
-                            <include reference="MgI-3m-iXS"/>
-                            <include reference="Rae-f7-ylw"/>
-                            <include reference="UNK-Gy-gmW"/>
-                            <include reference="pUa-U2-T3F"/>
-                            <include reference="83p-KJ-y0l"/>
-                            <include reference="E7h-U9-ogr"/>
-                            <include reference="gW4-hB-RCJ"/>
-                            <include reference="iZ7-Bm-XjW"/>
+                            <include reference="aoi-R8-QsD"/>
+                            <include reference="lvW-2h-Rql"/>
+                            <include reference="3yO-Qz-bku"/>
+                            <include reference="7y8-qg-UyZ"/>
                         </mask>
                     </variation>
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="HJl-BI-wrD" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="77H-cX-ZD1"/>
+                <constraint firstItem="HJl-BI-wrD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4hy-GA-uds"/>
                 <constraint firstAttribute="trailing" secondItem="7Ip-rH-9Gl" secondAttribute="trailing" id="BRH-SV-xNa"/>
                 <constraint firstItem="wtS-b7-BE3" firstAttribute="leading" secondItem="7Ip-rH-9Gl" secondAttribute="leading" id="JyZ-Qc-jKr"/>
                 <constraint firstItem="HJl-BI-wrD" firstAttribute="top" secondItem="wtS-b7-BE3" secondAttribute="bottom" id="ZEy-ND-tML"/>
                 <constraint firstItem="wtS-b7-BE3" firstAttribute="trailing" secondItem="7Ip-rH-9Gl" secondAttribute="trailing" id="akh-7u-Xde"/>
+                <constraint firstAttribute="trailing" secondItem="HJl-BI-wrD" secondAttribute="trailing" id="asA-ED-Wz6"/>
                 <constraint firstItem="wtS-b7-BE3" firstAttribute="top" secondItem="7Ip-rH-9Gl" secondAttribute="bottom" id="fg6-yc-TeF"/>
                 <constraint firstAttribute="bottom" secondItem="HJl-BI-wrD" secondAttribute="bottom" constant="152" id="gLG-0O-QFF">
                     <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -148,12 +130,13 @@
                     <exclude reference="BRH-SV-xNa"/>
                     <exclude reference="un7-aY-UqI"/>
                     <exclude reference="zTZ-lr-uQa"/>
-                    <exclude reference="77H-cX-ZD1"/>
-                    <exclude reference="ZEy-ND-tML"/>
-                    <exclude reference="gLG-0O-QFF"/>
                     <exclude reference="JyZ-Qc-jKr"/>
                     <exclude reference="akh-7u-Xde"/>
                     <exclude reference="fg6-yc-TeF"/>
+                    <exclude reference="4hy-GA-uds"/>
+                    <exclude reference="ZEy-ND-tML"/>
+                    <exclude reference="asA-ED-Wz6"/>
+                    <exclude reference="gLG-0O-QFF"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -166,20 +149,17 @@
                     <include reference="BRH-SV-xNa"/>
                     <include reference="un7-aY-UqI"/>
                     <include reference="zTZ-lr-uQa"/>
-                    <include reference="77H-cX-ZD1"/>
-                    <include reference="ZEy-ND-tML"/>
-                    <include reference="gLG-0O-QFF"/>
                     <include reference="JyZ-Qc-jKr"/>
                     <include reference="akh-7u-Xde"/>
                     <include reference="fg6-yc-TeF"/>
+                    <include reference="4hy-GA-uds"/>
+                    <include reference="ZEy-ND-tML"/>
+                    <include reference="asA-ED-Wz6"/>
+                    <include reference="gLG-0O-QFF"/>
                 </mask>
             </variation>
             <point key="canvasLocation" x="701" y="322"/>
         </view>
-        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="yxG-py-wto">
-            <rect key="frame" x="-25" y="-15" width="51" height="31"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-        </switch>
     </objects>
     <resources>
         <image name="SnapImage" width="115" height="115"/>

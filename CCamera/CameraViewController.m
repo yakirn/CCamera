@@ -67,8 +67,9 @@
     UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
 //    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
+    CGFloat squareSize = image.size.width > image.size.height ? image.size.height : image.size.width;
     // Crop image to square
-    CGRect croprect = CGRectMake(0, 0, image.size.width, image.size.width);
+    CGRect croprect = CGRectMake(0, 0, squareSize, squareSize);
     UIImage* squareImage = [image croppedImageInRect: croprect];
 
     // Show image
