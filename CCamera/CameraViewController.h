@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView* takenImageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *takeAnotherPhoto;
+@property (weak, nonatomic) IBOutlet UIView *squarePlaceholderView;
 
 -(IBAction) takePhoto:(id)sender forEvent:(UIEvent*)event;
 -(IBAction) takeAnotherPhoto:(id)sender forEvent:(UIEvent*)event;

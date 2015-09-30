@@ -47,6 +47,8 @@
         self.view.frame = screenFrame;
         self.picker.view.frame = screenFrame;
         
+        self.squarePlaceholderView.hidden = YES;
+        
         // Set this VC's view as the overlay view for the UIImagePickerController
         self.picker.cameraOverlayView = self.view;
     }
@@ -66,14 +68,9 @@
     
     UIImage* image = [info objectForKey:UIImagePickerControllerOriginalImage];
 //    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    
-    CGFloat squareSize = image.size.width > image.size.height ? image.size.height : image.size.width;
-    // Crop image to square
-    CGRect croprect = CGRectMake(0, 0, squareSize, squareSize);
-    UIImage* squareImage = [image croppedImageInRect: croprect];
 
     // Show image
-    [self presentImage: squareImage];
+    [self presentImage: image];
 }
 
 -(IBAction) toggleCameraGrid:(id)sender forEvent:(UIEvent*)event {
@@ -88,6 +85,7 @@
     self.takenImageView.hidden = NO;
     
 //    self.picker.view.hidden = YES;
+//    self.picker.cameraOverlayView.hidden = NO;
     
     // changing to approve button
     [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapApprove"] forState:UIControlStateNormal];
@@ -109,7 +107,7 @@
     self.takenImageView.image = nil;
     self.takenImageView.hidden = YES;
     
-//    self.picker.view.hidden = NO;
+    self.picker.view.hidden = NO;
     
     // changing to approve button
     [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapImage"] forState:UIControlStateNormal];
@@ -126,10 +124,19 @@
 }
 
 -(void) imageSelected {
+    UIImage* originalImage = self.takenImageView.image;
+    CGRect viewRect = self.squarePlaceholderView.frame;
+    double ratio = originalImage.size.width / viewRect.size.width;
+    
+    // Crop image to square
+    CGRect croprect = CGRectMake(0, viewRect.origin.y * ratio, originalImage.size.width, originalImage.size.width);
+    UIImage* squareImage = [self.takenImageView.image croppedImageInRect: croprect];
+    
     if(self.mainController != nil)
-        [self.mainController imageCaptured: self.takenImageView.image];
+        [self.mainController imageCaptured: squareImage];
 
     UIImageWriteToSavedPhotosAlbum(self.takenImageView.image, nil, nil, nil);
+    UIImageWriteToSavedPhotosAlbum(squareImage, nil, nil, nil);
 }
 
 //    UIImageWriteToSavedPhotosAlbum(squareImage, nil, nil, nil);
