@@ -51,9 +51,6 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="highlighted" image="SnapImageClicked"/>
-                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="135" y="120" width="115" height="115"/>
-                            </variation>
                             <connections>
                                 <action selector="takePhoto:forEvent:" destination="-1" eventType="touchUpInside" id="n4n-q9-raa"/>
                             </connections>
@@ -65,9 +62,6 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <state key="selected" image="gridsmall"/>
-                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                <rect key="frame" x="298" y="161" width="34" height="34"/>
-                            </variation>
                             <connections>
                                 <action selector="toggleCameraGrid:forEvent:" destination="-1" eventType="touchUpInside" id="H7O-pG-K66"/>
                             </connections>
@@ -75,10 +69,12 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" constant="48" id="3yO-Qz-bku"/>
-                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="centerY" secondItem="M8j-I3-4Tj" secondAttribute="centerY" id="7y8-qg-UyZ"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerX" secondItem="HJl-BI-wrD" secondAttribute="centerX" id="aoi-R8-QsD"/>
-                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerY" secondItem="HJl-BI-wrD" secondAttribute="centerY" id="lvW-2h-Rql"/>
+                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" id="1mj-7D-qjA"/>
+                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="leading" secondItem="M8j-I3-4Tj" secondAttribute="trailing" id="5On-aj-sHy"/>
+                        <constraint firstAttribute="trailing" secondItem="Iqa-qp-9Iu" secondAttribute="trailing" id="Gmw-JL-2Xm"/>
+                        <constraint firstItem="Iqa-qp-9Iu" firstAttribute="centerY" secondItem="HJl-BI-wrD" secondAttribute="centerY" id="QbE-Ye-Bhi"/>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerX" secondItem="HJl-BI-wrD" secondAttribute="centerX" id="eJv-2M-84d"/>
+                        <constraint firstItem="M8j-I3-4Tj" firstAttribute="centerY" secondItem="HJl-BI-wrD" secondAttribute="centerY" id="sMQ-lu-FVR"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
@@ -86,10 +82,12 @@
                             <exclude reference="Iqa-qp-9Iu"/>
                         </mask>
                         <mask key="constraints">
-                            <exclude reference="aoi-R8-QsD"/>
-                            <exclude reference="lvW-2h-Rql"/>
-                            <exclude reference="3yO-Qz-bku"/>
-                            <exclude reference="7y8-qg-UyZ"/>
+                            <exclude reference="eJv-2M-84d"/>
+                            <exclude reference="sMQ-lu-FVR"/>
+                            <exclude reference="1mj-7D-qjA"/>
+                            <exclude reference="5On-aj-sHy"/>
+                            <exclude reference="Gmw-JL-2Xm"/>
+                            <exclude reference="QbE-Ye-Bhi"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -98,10 +96,12 @@
                             <include reference="Iqa-qp-9Iu"/>
                         </mask>
                         <mask key="constraints">
-                            <include reference="aoi-R8-QsD"/>
-                            <include reference="lvW-2h-Rql"/>
-                            <include reference="3yO-Qz-bku"/>
-                            <include reference="7y8-qg-UyZ"/>
+                            <include reference="eJv-2M-84d"/>
+                            <include reference="sMQ-lu-FVR"/>
+                            <include reference="1mj-7D-qjA"/>
+                            <include reference="5On-aj-sHy"/>
+                            <include reference="Gmw-JL-2Xm"/>
+                            <include reference="QbE-Ye-Bhi"/>
                         </mask>
                     </variation>
                 </view>

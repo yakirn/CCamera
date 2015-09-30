@@ -87,6 +87,8 @@
     self.takenImageView.image = image;
     self.takenImageView.hidden = NO;
     
+//    self.picker.view.hidden = YES;
+    
     // changing to approve button
     [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapApprove"] forState:UIControlStateNormal];
     [self.takePhotoButton setImage: nil forState:UIControlStateHighlighted];
@@ -94,7 +96,7 @@
     [self.takePhotoButton addTarget:self action:@selector(imageSelected) forControlEvents:UIControlEventTouchUpInside];
     
     // changing to take another button
-    [self.takeAnotherPhoto setImage:[UIImage imageNamed:@"gallery"] forState:UIControlStateNormal];
+    [self.takeAnotherPhoto setImage:[UIImage imageNamed:@"cameraaftergrid"] forState:UIControlStateNormal];
     self.gridState = self.takeAnotherPhoto.selected;
     self.takeAnotherPhoto.selected = NO;
     [self.takeAnotherPhoto removeTarget:self action:@selector(toggleCameraGrid:forEvent:) forControlEvents:UIControlEventTouchUpInside];
@@ -106,6 +108,8 @@
     //Hiding image view
     self.takenImageView.image = nil;
     self.takenImageView.hidden = YES;
+    
+//    self.picker.view.hidden = NO;
     
     // changing to approve button
     [self.takePhotoButton setImage: [UIImage imageNamed:@"SnapImage"] forState:UIControlStateNormal];
